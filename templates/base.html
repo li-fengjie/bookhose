@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人书屋</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link rel="stylesheet" data-ignore="true"
+          href="https://qidian.gtimg.com/c/=/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/list_module.e8c32.css,/hongxiu/css/free.12b3d.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/footer.4a6a8.css">
+    <link rel="stylesheet" data-ignore="true"
+          href="https://qidian.gtimg.com/c/=/hongxiu/css/lbfUI/css/icon.c9000.css,/hongxiu/css/lbfUI/css/Drag.41d31.css,/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/footer.4a6a8.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/book_details.b5de2.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/book_popup.76874.css,/hongxiu/css/vote_popup.524f6.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Panel.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'front/book.png' %}">
+    <link rel="stylesheet" data-ignore="true"
+          href="https://qidian.gtimg.com/c/=/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/layout.9f7c8.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'front/book.png' %}">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"></button>
+                        <a class="navbar-brand" href="#" style="color: #ffffff"> <em
+                                class="iconfont">&#xe612;</em>全部分类</a></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
+                         style="background-color: palegreen">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="{% url 'free' %}" style="color: #ffffff">免费</a>
+                            </li>
+                            <li>
+                                <a href="{% url "end" %}" style="color: #ffffff">完本</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'serial' %}" style="color: #ffffff">连载</a>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="输入作者/书籍名称"/>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <meta name="csrf" content="{{ csrf_token }}">
+                            {% if frontuser %}
+                                <li>
+                                    <a href="#" style="color: #ffffff">您好,{{ frontuser.username }}</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'logout' %}" style="color: #ffffff">注销</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'mybooks' id=frontuser.id %}" style="color: #ffffff">个人书架</a>
+                                </li>
+
+                            {% else %}
+                                <li>
+                                    <a href="{% url 'login' %}" style="color: #ffffff">登陆</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'register' %}" style="color: #ffffff">注册</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</head>
+<body>
+{% block body %}
+{% endblock %}
+{% include 'footer.html' %}
+</body>

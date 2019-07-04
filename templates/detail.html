@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" data-ignore="true"
+          href="//qidian.gtimg.com/c/=/hongxiu/css/lbfUI/css/icon.c9000.css,/hongxiu/css/lbfUI/css/Drag.41d31.css,/hongxiu/css/lbfUI/css/Checkbox.cc633.css,/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/footer.4a6a8.css,/hongxiu/css/read.acbd1.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/book_popup.76874.css,/hongxiu/css/vote_popup.524f6.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Panel.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Drag.css">
+
+</head>
+<body>
+<div class="read-main-wrap font-family01" style="font-size:18px" id="j_readMainWrap">
+    <div id="j_chapterBox" data-l1="3">
+        <div class="text-wrap">
+            <div class="main-text-wrap">
+                <div class="read-content j_readContent">
+                    {% autoescape off %}
+
+                        {{ content.content }}
+
+                    {% endautoescape %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-control dib-wrap" data-l1="3">
+        {% if content.id > 0 %}
+            <a href="/detail/{{ content.id|add:-1 }}">上一章</a>
+        {% else %}
+            <a href="/detail/{{ content.id }}">上一章</a>
+        {% endif %}
+        <span>|</span>
+        <a>目录</a>
+        <span>|</span>
+        <a href="/detail/{{ content.id|add:1 }}">下一章</a>
+    </div>
+</div>
+</body>
+</html>

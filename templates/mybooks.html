@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <link rel="stylesheet" data-ignore="true"
+          href="//qidian.gtimg.com/c/=/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/list_module.e8c32.css,/hongxiu/css/free.12b3d.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/footer.4a6a8.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Drag.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Panel.css">
+    <link rel="stylesheet" data-ignore="true"
+          href="https://qidian.gtimg.com/c/=/hongxiu/css/lbfUI/css/icon.c9000.css,/hongxiu/css/lbfUI/css/Drag.41d31.css,/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/footer.4a6a8.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/book_details.b5de2.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/book_popup.76874.css,/hongxiu/css/vote_popup.524f6.css">
+    <link rel="stylesheet" data-ignore="true"
+          href="https://qidian.gtimg.com/c/=/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/list_module.e8c32.css,/hongxiu/css/free.12b3d.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/footer.4a6a8.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+
+    <div class="limit-free-list cf book-detail-wrap center1020">
+        <div class="limit-book-list fl" data-l1="5">
+
+            <div id="limit-list" class="inner-wrap">
+                <div class="book-img-text">
+                    <ul>
+                        {% for book in books %}
+                            <li data-rid="1">
+                                <div class="book-img-box">
+                                    <a href="{% url 'book_catalog' book_id=book.id %}"
+                                       target="_blank"><img
+                                            src="/media/{{ book.cover }}"></a>
+                                </div>
+                                <div class="book-mid-info">
+                                    <h4><a href="{% url 'book_catalog' book_id=book.id %}" target="_blank"
+                                           >{{ book.title }}</a></h4>
+                                    <p class="author"><a
+                                            class="default name">{{  book.author.authorname  }}</a><em>|</em>
+                                    </p>
+                                    <p class="intro">
+                                       {{ book.instruction }}
+                                    </p>
+                                </div>
+                                <div class="book-right-info">
+                                    <p class="btn">
+                                        <a class="red-btn" href="{% url 'book_catalog' book_id=book.id %}" target="_blank"
+                                           style="background-color: palegreen;border-color: palegreen;color: #000000">开始阅读</a>
+                                    </p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

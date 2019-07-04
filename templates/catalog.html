@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Drag.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Panel.css">
+    <link rel="stylesheet" data-ignore="true"
+          href="https://qidian.gtimg.com/c/=/hongxiu/css/lbfUI/css/icon.c9000.css,/hongxiu/css/lbfUI/css/Drag.41d31.css,/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/footer.4a6a8.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/book_details.b5de2.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/book_popup.76874.css,/hongxiu/css/vote_popup.524f6.css">
+    <link rel="stylesheet" data-ignore="true"
+          href="https://qidian.gtimg.com/c/=/hongxiu/css/reset.5c4a3.css,/hongxiu/css/font.2ef69.css,/hongxiu/css/header.f7aa0.css,/hongxiu/css/module.ddca7.css,/hongxiu/css/list_module.e8c32.css,/hongxiu/css/free.12b3d.css,/hongxiu/css/layout.9f7c8.css,/hongxiu/css/popup.b5c52.css,/hongxiu/css/footer.4a6a8.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/LightTip.css">
+    <link charset="utf-8" rel="stylesheet" href="https://qidian.gtimg.com/hongxiu/css/lbfUI/css/Popup.css">
+</head>
+
+<body>
+<div class="book-detail-wrap center1020">
+    <div class="book-information cf">
+
+        <div class="flag"></div>
+
+        <div class="book-img">
+            <a class="J-getJumpUrl default"><img
+                    src="/media/{{ book.cover }}"></a>
+        </div>
+        <div class="book-info">
+
+            <a class="unfold down" href="javascript:">
+                <b></b>
+                <span>
+            </span>
+            </a>
+            <h1><em>{{ book.title }}</em> <a class="writer default" target="_blank">{{ book.anthor.anthorname }}</a>
+            </h1>
+            <p class="tag-box">
+                <i class="blue">{{ book.state.name }}</i>
+            </p>
+            <p class="intro">{{ book.instruction }}
+            </p>
+
+
+            <p class="btn">
+                <a class="border-btn add-book" id="addBookBtn" href="javascript:"
+                >加入书架</a>
+                <!--
+                <a class="border-btn " href="javascript:"><em class="iconfont">&#xe618;</em>投票互动</a>
+                -->
+            </p>
+
+        </div>
+
+        <div class="take-wrap">
+
+            </a>
+
+        </div>
+
+    </div>
+    <div class="content-nav-wrap cf" data-l1="10">
+        <div class="nav-wrap fl">
+            <ul>
+                <li class="j_catalog_block act"><a class="lang" href="javascript:" id="j_catalogPage" data-eid="qd_G15">目录<i><span
+                        id="J-catalogCount"></span></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="catalog-content-wrap catalog-page" id="j-catalogWrap">
+        <div class="go-top-box" id="j-goTopBox" style="display: none;">
+            <a href="javascript:" title="回到顶部"><em class="iconfont"></em></a>
+        </div>
+
+        <div class="volume-wrap">
+
+            <div class="volume">
+
+                <ul class="cf">
+
+                    {% for catalog in catalogs %}
+                        <li data-rid="1"><a href="{% url 'book_detail' content_id=catalog.content.id %}"
+                                            target="_blank"
+                                            title="">{{ catalog.title }}</a>
+
+                        </li>
+                    {% endfor %}
+
+
+
+                    {#                    <li data-rid="2"><a href="//www.hongxiu.com/chapter/13421924503608304/36029554099780169"#}
+                    {#                                        target="_blank"#}
+                    {#                                        data-cid="//www.hongxiu.com/chapter/13421924503608304/36029554099780169"#}
+                    {#                                        title="首发时间：2个月前 章节字数：1310">002 封璟炎他是我前夫</a>#}
+                    {##}
+                    {#                    </li>#}
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
